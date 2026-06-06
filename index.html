@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evolución de Internet y la Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0f172a;
+        color: #f8fafc;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      .font-title {
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      /* Timeline styles */
+      .timeline-container {
+        position: relative;
+      }
+      .timeline-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #ec4899);
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .timeline-container::before {
+          left: 20px;
+        }
+      }
+
+      .timeline-item {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out;
+      }
+
+      .timeline-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .glass-card {
+        background: rgba(30, 41, 59, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .gradient-text {
+        background: linear-gradient(to right, #60a5fa, #c084fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Blob animations for background */
+      .blob {
+        position: absolute;
+        filter: blur(80px);
+        z-index: -1;
+        opacity: 0.4;
+        animation: move 10s infinite alternate;
+      }
+      @keyframes move {
+        from {
+          transform: translate(0, 0) scale(1);
+        }
+        to {
+          transform: translate(20px, -20px) scale(1.1);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="antialiased selection:bg-purple-500 selection:text-white relative">
+    <!-- Background Decoration -->
+    <div class="blob bg-blue-600 w-96 h-96 rounded-full top-0 left-0"></div>
+    <div
+      class="blob bg-purple-600 w-96 h-96 rounded-full bottom-0 right-0"
+      style="animation-delay: -5s"></div>
+
+    <!-- Header Section -->
+    <header
+      class="min-h-screen flex flex-col justify-center items-center text-center px-4 relative z-10">
+      <div
+        class="glass-card p-8 md:p-16 rounded-3xl max-w-4xl mx-auto shadow-2xl border-t border-l border-white/10">
+        <div
+          class="inline-block px-4 py-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 text-blue-300 font-semibold text-sm mb-6 uppercase tracking-widest">
+          Línea de Tiempo Interactiva
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+          La Evolución de <br /><span class="gradient-text"
+            >Internet y la Web</span
+          >
+        </h1>
+        <p
+          class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+          Un viaje histórico a través de 10 hitos fundamentales que
+          transformaron nuestra forma de comunicarnos, desde el primer mensaje
+          de ARPANET hasta la integración de la Inteligencia Artificial.
+        </p>
+        <a
+          href="#timeline"
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,92,246,0.3)]">
+          Comenzar el viaje <i class="fas fa-arrow-down"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-20 px-4 relative z-10">
+      <div class="max-w-6xl mx-auto timeline-container">
+        <!-- Hito 1 -->
+        <div
+          class="timeline-item flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24">
+          <div class="hidden md:block w-5/12"></div>
+          <div
+            class="z-20 flex items-center shadow-xl order-1 bg-blue-500 w-12 h-12 rounded-full absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 flex justify-center text-white font-bold border-4 border-slate-900">
+            1
+          </div>
+          <div class="order-1 w-full md:w-5/12 pl-12 md:pl-0">
+            <div
+              class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+              <div class="text-blue-400 font-bold text-2xl mb-2 font-title">
+                1969
+              </div>
+              <h3 class="text-2xl font-bold mb-3">El nacimiento de ARPANET</h3>
+              <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                El 29 de octubre de 1969, se envió el primer mensaje entre dos
+                computadoras situadas en la UCLA y el Instituto de Investigación
+                de Stanford (SRI). El mensaje pretendía ser "LOGIN", pero el
+                sistema colapsó tras teclear "LO". Fue el primer enlace exitoso
+                de la red de la agencia ARPA.
+              </p>
+              <img
+                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt=""
+                class="w-full h-48 object-cover rounded-xl mb-3 opacity-80 hover:opacity-100 transition-opacity" />
+              <a
+                href="https://es.wikipedia.org/wiki/ARPANET"
+                target="_blank"
+                class="text-blue-400 text-sm hover:underline"
+                ><i class="fas fa-link"></i> Ref: Historia de ARPANET</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Hito 2 -->
+        <div
+          class="timeline-item flex flex-col md:flex-row-reverse justify-between items-center w-full mb-16 md:mb-24">
+          <div class="hidden md:block w-5/12"></div>
+          <div
+            class="z-20 flex items-center shadow-xl order-1 bg-purple-500 w-12 h-12 rounded-full absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 flex justify-center text-white font-bold border-4 border-slate-900">
+            2
+          </div>
+          <div
+            class="order-1 w-full md:w-5/12 pl-12 md:pl-0 text-left md:text-right">
+            <div
+              class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+              <div class="text-purple-400 font-bold text-2xl mb-2 font-title">
+                1983
+              </div>
+              <h3 class="text-2xl font-bold mb-3">
+                Adopción del Protocolo TCP/IP
+              </h3>
+              <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                El 1 de enero de 1983, ARPANET cambió su protocolo de control de
+                red original al protocolo TCP/IP. Este fue un hito crucial, ya
+                que permitió que diferentes redes de computadoras se comunicaran
+                entre sí mediante un estándar universal. Muchos consideran esta
+                fecha como el "cumpleaños" oficial de Internet.
+              </p>
+              <img
+                src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt=""
+                class="w-full h-48 object-cover rounded-xl mb-3 opacity-80 hover:opacity-100 transition-opacity" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Hito 3 -->
+        <div
+          class="timeline-item flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24">
+          <div class="hidden md:block w-5/12"></div>
+          <div
+            class="z-20 flex items-center shadow-xl order-1 bg-pink-500 w-12 h-12 rounded-full absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 flex justify-center text-white font-bold border-4 border-slate-900">
+            3
+          </div>
+          <div class="order-1 w-full md:w-5/12 pl-12 md:pl-0">
+            <div
+              class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+              <div class="text-pink-400 font-bold text-2xl mb-2 font-title">
+                1989-1991
+              </div>
+              <h3 class="text-2xl font-bold mb-3">
+                La invención de la World Wide Web
+              </h3>
+              <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                Tim Berners-Lee, científico del CERN, redacta la propuesta
+                inicial de la WWW en 1989. Creó el lenguaje HTML, el protocolo
+                HTTP y el primer navegador web. En 1991, la primera página web
+                de la historia se hizo pública, explicando qué era el proyecto
+                WWW.
+              </p>
+
+              <!-- VIDEO REQUIREMENT 1 -->
+              <div class="aspect-video w-full rounded-xl overflow-hidden mb-3">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/GUvwK3kRmaA?si=lI7fQp91o91X0E92"
+                  title="Tim Berners-Lee inventing the web"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                  "
+                  allowfullscreen></iframe>
+              </div>
+              <p class="text-xs text-slate-400 italic mb-2">
+                Video: Entrevista a Tim Berners-Lee sobre la creación de la web.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hito 4 -->
+        <div
+          class="timeline-item flex flex-col md:flex-row-reverse justify-between items-center w-full mb-16 md:mb-24">
+          <div class="hidden md:block w-5/12"></div>
+          <div
+            class="z-20 flex items-center shadow-xl order-1 bg-blue-500 w-12 h-12 rounded-full absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 flex justify-center text-white font-bold border-4 border-slate-900">
+            4
+          </div>
+          <div
+            class="order-1 w-full md:w-5/12 pl-12 md:pl-0 text-left md:text-right">
+            <div
+              class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+              <div class="text-blue-400 font-bold text-2xl mb-2 font-title">
+                1993
+              </div>
+              <h3 class="text-2xl font-bold mb-3">
+                Lanzamiento del navegador Mosaic
+              </h3>
+              <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                Desarrollado en el NCSA, Mosaic fue el primer navegador web
+                ampliamente utilizado que incluía una interfaz gráfica de
+                usuario. Permitió mostrar imágenes junto al texto, haciendo la
+                web infinitamente más atractiva y accesible para el público
+                general, impulsando el boom de Internet en los años 90.
+              </p>
+              <img
+                src="https://images.unsplash.com/photo-1627398225058-f4a40695869d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt=""
+                class="w-full h-48 object-cover rounded-xl mb-3 opacity-80 hover:opacity-100 transition-opacity" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Hito 5 -->
+        <div
+          class="timeline-item flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24">
+          <div class="hidden md:block w-5/12"></div>
+          <div
+            class="z-20 flex items-center shadow-xl order-1 bg-purple-500 w-12 h-12 rounded-full absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 flex justify-center text-white font-bold border-4 border-slate-900">
+            5
+          </div>
+          <div class="order-1 w-full md:w-5/12 pl-12 md:pl-0">
+            <div
+              class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+              <div class="text-purple-400 font-bold text-2xl mb-2 font-title">
+                1998
+              </div>
+              <h3 class="text-2xl font-bold mb-3">Fundación de Google</h3>
+              <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                Larry Page y Sergey Brin fundan Google en un garaje de
+                California. Su algoritmo "PageRank" revolucionó los motores de
+                búsqueda, organizando la inmensa y creciente cantidad de
+                información de la Web basándose en la relevancia de los enlaces,
+                dando forma a la navegación que conocemos hoy.
+              </p>
+              <img
+                src="https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt=""
+                class="w-full h-48 object-cover rounded-xl mb-3 opacity-80 hover:opacity-100 transition-opacity" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Hito 6 -->
+        <div
+          class="timeline-item flex flex-col md:flex-row-reverse justify-between items-center w-full mb-16 md:mb-24">
+          <div class="hidden md:block w-5/12"></div>
+          <div
+            class="z-20 flex items-center shadow-xl order-1 bg-pink-500 w-12 h-12 rounded-full absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 flex justify-center text-white font-bold border-4 border-slate-900">
+            6
+          </div>
+          <div
+            class="order-1 w-full md:w-5/12 pl-12 md:pl-0 text-left md:text-right">
+            <div
+              class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+              <div class="text-pink-400 font-bold text-2xl mb-2 font-title">
+                2001
+              </div>
+              <h3 class="text-2xl font-bold mb-3">Nace Wikipedia</h3>
+              <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                Jimmy Wales y Larry Sanger lanzan Wikipedia. Este hito demostró
+                el verdadero poder de una web colaborativa y de código abierto.
+                Consolidó la idea de que los usuarios podían ser creadores
+                activos de información, sentando un precedente claro para la
+                inminente era de la Web 2.0.
+              </p>
+              <a
+                href="https://es.wikipedia.org/wiki/Historia_de_Wikipedia"
+                target="_blank"
+                class="text-pink-400 text-sm hover:underline"
+                ><i class="fas fa-book"></i> Ref: Historia de Wikipedia</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Hito 7 -->
+        <div
+          class="timeline-item flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24">
+          <div class="hidden md:block w-5/12"></div>
+          <div
+            class="z-20 flex items-center shadow-xl order-1 bg-blue-500 w-12 h-12 rounded-full absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 flex justify-center text-white font-bold border-4 border-slate-900">
+            7
+          </div>
+          <div class="order-1 w-full md:w-5/12 pl-12 md:pl-0">
+            <div
+              class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+              <div class="text-blue-400 font-bold text-2xl mb-2 font-title">
+                2004
+              </div>
+              <h3 class="text-2xl font-bold mb-3">
+                La era de la Web 2.0 (Facebook)
+              </h3>
+              <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                Mark Zuckerberg lanza "Thefacebook" en Harvard. Aunque no fue la
+                primera red social, su éxito global simbolizó el establecimiento
+                definitivo de la "Web 2.0". La web estática de lectura (Web 1.0)
+                se transformó en una plataforma bidireccional, social e
+                interactiva.
+              </p>
+              <img
+                src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="[Image of Redes Sociales]"
+                class="w-full h-48 object-cover rounded-xl mb-3 opacity-80 hover:opacity-100 transition-opacity" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Hito 8 -->
+        <div
+          class="timeline-item flex flex-col md:flex-row-reverse justify-between items-center w-full mb-16 md:mb-24">
+          <div class="hidden md:block w-5/12"></div>
+          <div
+            class="z-20 flex items-center shadow-xl order-1 bg-purple-500 w-12 h-12 rounded-full absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 flex justify-center text-white font-bold border-4 border-slate-900">
+            8
+          </div>
+          <div
+            class="order-1 w-full md:w-5/12 pl-12 md:pl-0 text-left md:text-right">
+            <div
+              class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+              <div class="text-purple-400 font-bold text-2xl mb-2 font-title">
+                2007
+              </div>
+              <h3 class="text-2xl font-bold mb-3">
+                La Revolución Móvil (El iPhone)
+              </h3>
+              <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                Steve Jobs presenta el primer iPhone. Esto cambió radicalmente
+                la forma en que el mundo accede a Internet. Los navegadores
+                móviles y las aplicaciones (App Store en 2008) obligaron a la
+                Web a volverse "Responsive" y a pensar primero en el usuario
+                móvil (Mobile First).
+              </p>
+              <img
+                src="https://images.unsplash.com/photo-1512054502232-10a0a035d672?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="[Image of Smartphone]"
+                class="w-full h-48 object-cover rounded-xl mb-3 opacity-80 hover:opacity-100 transition-opacity" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Hito 9 -->
+        <div
+          class="timeline-item flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24">
+          <div class="hidden md:block w-5/12"></div>
+          <div
+            class="z-20 flex items-center shadow-xl order-1 bg-pink-500 w-12 h-12 rounded-full absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 flex justify-center text-white font-bold border-4 border-slate-900">
+            9
+          </div>
+          <div class="order-1 w-full md:w-5/12 pl-12 md:pl-0">
+            <div
+              class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+              <div class="text-pink-400 font-bold text-2xl mb-2 font-title">
+                2009
+              </div>
+              <h3 class="text-2xl font-bold mb-3">
+                Nacimiento de Bitcoin y Blockchain
+              </h3>
+              <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                Bajo el seudónimo de Satoshi Nakamoto, se lanza la red Bitcoin.
+                Más allá de la criptomoneda, introdujo la tecnología
+                "Blockchain", cimentando las bases conceptuales para la
+                descentralización de la información y la propiedad digital,
+                pilares de lo que hoy llamamos Web3.
+              </p>
+              <img
+                src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="[Image of Blockchain]"
+                class="w-full h-48 object-cover rounded-xl mb-3 opacity-80 hover:opacity-100 transition-opacity" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Hito 10 -->
+        <div
+          class="timeline-item flex flex-col md:flex-row-reverse justify-between items-center w-full mb-16">
+          <div class="hidden md:block w-5/12"></div>
+          <div
+            class="z-20 flex items-center shadow-xl order-1 bg-blue-500 w-12 h-12 rounded-full absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 flex justify-center text-white font-bold border-4 border-slate-900">
+            10
+          </div>
+          <div
+            class="order-1 w-full md:w-5/12 pl-12 md:pl-0 text-left md:text-right">
+            <div
+              class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform shadow-[0_0_30px_rgba(59,130,246,0.3)] border-blue-500/30">
+              <div class="text-blue-400 font-bold text-2xl mb-2 font-title">
+                2022
+              </div>
+              <h3 class="text-2xl font-bold mb-3">
+                La Web Generativa (ChatGPT)
+              </h3>
+              <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                OpenAI lanza ChatGPT al público general, logrando millones de
+                usuarios en días. Marca el inicio de la integración masiva de la
+                Inteligencia Artificial en la Web. La forma de buscar
+                información, crear código y redactar contenido cambia para
+                siempre, inaugurando una web proactiva y semántica.
+              </p>
+
+              <!-- VIDEO REQUIREMENT 2 -->
+              <div class="aspect-video w-full rounded-xl overflow-hidden mb-3">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/S_tgSlC_ke8?si=ZkZ1Lh29tq-bA3Qc"
+                  title="ChatGPT Explained"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                  "
+                  allowfullscreen></iframe>
+              </div>
+              <p class="text-xs text-slate-400 italic mb-2">
+                Video: El impacto de la Inteligencia Artificial Generativa.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future Predictions Section -->
+    <section
+      class="py-24 px-4 relative z-10 border-t border-white/10 bg-slate-900/50">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4 font-title">
+            <i class="fas fa-rocket text-purple-500"></i> El Futuro de la Web
+          </h2>
+          <p class="text-slate-400 max-w-2xl mx-auto">
+            Hacia dónde nos dirigimos: Las tecnologías emergentes que
+            redefinirán nuestra interacción con el mundo digital y físico en la
+            próxima década.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Predicción Web3 -->
+          <div
+            class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center text-2xl shadow-lg mb-6 text-white">
+              <i class="fa-brands fa-ethereum"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white">
+              Web3 y Descentralización
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+              La Web3 promete devolver el control a los usuarios a través de
+              redes descentralizadas (Blockchain). El futuro vislumbra una web
+              donde la identidad digital, los datos personales y las
+              transacciones financieras no dependen de gigantes tecnológicos
+              corporativos, sino de protocolos abiertos, contratos inteligentes
+              y tokens de propiedad.
+            </p>
+          </div>
+
+          <!-- Predicción IoT -->
+          <div
+            class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-400 rounded-2xl flex items-center justify-center text-2xl shadow-lg mb-6 text-white">
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white">
+              IoT: Internet of Things
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+              El futuro de la web trasciende las pantallas. Con la maduración de
+              las redes 5G/6G, el Internet de las Cosas conectará billones de
+              dispositivos: desde electrodomésticos y biosensores de salud,
+              hasta infraestructuras de ciudades inteligentes enteras,
+              interactuando en tiempo real y haciendo a la red omnipresente e
+              invisible.
+            </p>
+          </div>
+
+          <!-- Predicción IA -->
+          <div
+            class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 border-t border-purple-500/30 shadow-[0_-10px_40px_rgba(168,85,247,0.15)]">
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-pink-500 to-orange-400 rounded-2xl flex items-center justify-center text-2xl shadow-lg mb-6 text-white">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white">
+              IA y Web Semántica
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+              La Inteligencia Artificial pasará de ser una herramienta a ser la
+              infraestructura central. La futura Web Semántica será capaz de
+              entender el significado y contexto humano perfectamente. Tendremos
+              interfaces generativas creadas en tiempo real para cada usuario,
+              asistentes personales autónomos realizando tareas complejas e
+              interfaces de voz/neuronales.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="py-8 text-center border-t border-white/5 relative z-10 text-slate-500 text-sm">
+      <p>Investigación y Diseño Interactivo - Evolución de la Web</p>
+    </footer>
+
+    <!-- Script for Scroll Animation -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.2,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".timeline-item").forEach((item) => {
+          observer.observe(item);
+        });
+      });
+    </script>
+  </body>
+</html>
